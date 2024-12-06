@@ -9,8 +9,6 @@ node{
     }
     
     stage('containerize'){
-       sh 'whereami' 
-       sh 'docker ps' 
        sh 'docker build -t more3118/insure-me:1.0 .'
     }
     
