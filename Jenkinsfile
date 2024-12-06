@@ -20,7 +20,10 @@ node{
     }
     
     stage('Deploy to Test'){
-     ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: ''
+     ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: '',
+     extraVars:[
+            ansible_sudo_pass: ${ansible-key}
+        ])
     }
     
     stage('checkout regression test source code'){
