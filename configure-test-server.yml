@@ -1,6 +1,6 @@
 ---
 - hosts: testserver
-  become: true
+  become: false
   tasks:
   - name: update apt
     command: sudo apt-get update
