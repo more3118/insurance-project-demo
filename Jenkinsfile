@@ -1,7 +1,7 @@
 node{
     
     stage('checkout'){
-        git 'https://github.com/shubhamkushwah123/insurance-project-demo.git'
+        git 'https://github.com/more3118/insurance-project-demo.git'
     }
     
     stage('maven build'){
@@ -14,7 +14,7 @@ node{
     
     stage('Release'){
         withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-          sh "docker login -u shubhamkushwah123 -p ${dockerHubPwd}"
+          sh "docker login -u more3118 -p ${dockerHubPwd}"
           sh 'docker push more3118/insure-me:1.0'
         }
     }
