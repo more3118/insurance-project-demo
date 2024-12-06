@@ -24,7 +24,7 @@ node{
     }
     
     stage('checkout regression test source code'){
-        git 'https://github.com/shubhamkushwah123/my-selenium-test-app.git'
+        git 'https://github.com/more3118/my-selenium-test-app.git'
     }
     
     stage('build test scripts'){
