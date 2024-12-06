@@ -14,8 +14,8 @@ node{
     
     stage('Release'){
         withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-      //  sh "docker login -u shubhamkushwah123 -p ${dockerHubPwd}"
-     //   sh 'docker push shubhamkushwah123/insure-me:1.0'
+          sh "docker login -u shubhamkushwah123 -p ${dockerHubPwd}"
+          sh 'docker push more3118/insure-me:1.0'
         }
     }
     
