@@ -59,12 +59,14 @@ node{
     }
     
     stage('containerize'){
+       sh 'whereami' 
+       sh 'docker ps' 
        sh 'docker build -t more3118/insure-me:1.0 .'
     }
     
     stage('Release'){
         withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
-       sh "docker login -u more3118 -p ${dockerHubPwd}"
+       sh 'docker login -u more3118 -p ${dockerHubPwd}'
        sh 'docker push more3118/insure-me:1.0'
         }
     }
