@@ -36,7 +36,7 @@ node{
     }
 
     stage('checkout'){
-        git 'https://github.com/shubhamkushwah123/insurance-project-demo.git'
+        git 'https://github.com/more3118/insurance-project-demo.git'
     }
     
      stage('Deploy to Test'){
