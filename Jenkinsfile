@@ -19,13 +19,13 @@ node{
         }
     }
     
-    stage('Deploy to Test'){
-     ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-prod-server.yml', vaultTmpPath: ''
-    }
-
-    //   stage('Deploy to Test'){
-    //  ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: ''
+    // stage('Deploy to Test'){
+    //  ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-prod-server.yml', vaultTmpPath: ''
     // }
+
+      stage('Deploy to Test'){
+     ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: ''
+    }
     
     
     stage('checkout regression test source code'){
