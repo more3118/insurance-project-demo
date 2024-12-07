@@ -11,7 +11,14 @@
   - name: start docker service
     command: sudo systemctl start docker
 
+  - name: kill all docker container
+    command: docker kill $(docker ps -q)
+
+  - name: kill all docker container
+    command: docker image rm $(docker images -a -q)
+
   # - name: deploy insureme application
   #   command: sudo docker run -itd -p 8081:8081 --name insure-me more3118/insure-me:1.0
+
   - name: deploy insureme application
-    command: sudo docker run -itd -p 8081:8081 --name insure-me more3118/insure-me:1.0
+    command: sudo docker run -itd --network host --name insure-me more3118/insure-me:1.0
