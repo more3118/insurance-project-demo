@@ -20,8 +20,13 @@ node{
     }
     
     stage('Deploy to Test'){
-     ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: ''
+     ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-prod-server.yml', vaultTmpPath: ''
     }
+
+    //   stage('Deploy to Test'){
+    //  ansiblePlaybook become: false, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: ''
+    // }
+    
     
     stage('checkout regression test source code'){
         git 'https://github.com/more3118/my-selenium-test-app.git'
@@ -40,7 +45,7 @@ node{
     }
     
      stage('Deploy to Test'){
-     ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-prod-server.yml', vaultTmpPath: ''
+     ansiblePlaybook become: true, credentialsId: 'ansible-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'configure-test-server.yml', vaultTmpPath: ''
     }
     
     
