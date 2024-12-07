@@ -16,4 +16,4 @@
   #   command: sudo docker run -itd -p 8081:8081 --name insure-me more3118/insure-me:1.0
 
   - name: deploy insureme application
-    command: docker run -d -p 8081:8082 --name insure-me more3118/insure-me:1.0
+    command: docker run -d -p 8081:8081 --name insure-me more3118/insure-me:1.0
